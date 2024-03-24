@@ -1,0 +1,107 @@
+// make a mixin for flex column
+@mixin flex-column($justify: center, $align: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// make a mixin for flex row
+@mixin flex-row($justify: center, $align: center) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// make a mixin for flex center
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+// make a mixin for flex center
+@mixin  shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+$primary-color: #EFBC9B;
+$hover-color: #364B71;
+$secondary-color: #FBF3D5;
+$tertiary-color: #D6DAC8;
+$dark-color: #9CAFAA;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: $tertiary-color;
+}
+
+
+.navbar{
+    @include flex-row( space-between, center);
+    background-color: $primary-color;
+    padding: .5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     position: absolute;
+    width: 100%;
+
+
+    .nav-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 1rem;
+
+        i{
+            margin-right: 0.5rem;
+            &:hover{
+                color: $hover-color;               
+            }
+        }
+
+        h1{
+            font-size: 1.7rem;
+            font-weight: 700;
+        }   
+    }
+    z-index: 100;
+}
+
+.sidebar{
+    @include flex-column(space-between, space-between);
+    background-color: $secondary-color;
+    width: 15%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+
+    padding-top: 3rem;
+
+    //Shadow right
+    @include shadow;
+    
+
+    .sidebar-item{
+        @include flex-row( flex-start, center);
+        padding: 1rem;
+        width: 100%;
+        border-bottom: 1px solid $dark-color;
+        &:hover{
+            background-color: $hover-color;
+        }
+        i{
+            margin-right: 0.5rem;
+        }
+    }
+}

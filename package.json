@@ -2,21 +2,23 @@
   "name": "todolist",
   "version": "1.0.0",
   "main": "index.js",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx webpack build",
-    "watch": "npx webpack build --watch",
+    "build": "npx webpack build --mode production",
+    "watch": "npx webpack build --watch --mode production",
     "gh-pages-deploy": "npm run build && git add . && git commit -m 'Deploy to gh-pages' && git subtree push --prefix dist origin gh-pages"
   },
   "author": "Sparsh",
   "license": "ISC",
   "description": "This is a simple todo list app using webpack under guidance of theodinproject",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
     "css-loader": "^6.10.0",
     "html-webpack-plugin": "^5.6.0",
+    "sass": "^1.72.0",
+    "sass-loader": "^14.1.1",
     "style-loader": "^3.3.4",
-    "webpack": "^5.90.3",
+    "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
