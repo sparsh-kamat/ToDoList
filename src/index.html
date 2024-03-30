@@ -11,48 +11,53 @@
 </head>
 
 <body>
-  <script src="./js/index.js"></script>
+
 
   <div class="main">
     <div class="navbar">
       <div class="nav-item">
-        <i class="fa-solid fa-bars fa-xl"></i>
+        <i class="fa-solid fa-bars fa-xl" onclick="menu()" id="navbutton"></i>
         <h1>To-Do List</h1>
       </div>
-      <div class="nav-item">
-        <i class="fa-solid fa-plus fa-2xl"></i>
+      <div class="nav-item " id="addtask">
+        <p>Add Task</p>
+        <i class="fa-solid fa-plus" id="plus"></i>
       </div>
     </div>
 
-    <div class="belownav">
-      <div class="sidebar">
-        <div class="sidebar-main">
-          <div class="sidebar-item">
-            <i class="fa-solid fa-home"></i>
-            <p>All Tasks</p>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-calendar"></i>
-            <p>Today</p>
-          </div>
+
+    <div class="sidebar">
+      <div class="sidebar-main">
+        <div class="sidebar-item" id="alltasks">
+          <i class="fa-solid fa-home"></i>
+          <p>All Tasks</p>
         </div>
-        <div class="project-container">
-          <div class="sidebar-item">
-            <h2>Add Project</h2>
-            <i class="fa-solid fa-plus"></i>
-          </div>
-          <div class="sidebar-item">
-            <i class="fa-solid fa-calendar"></i>
-            <p>Default</p>
-          </div>
+        <div class="sidebar-item" id="todaytasks">
+          <i class="fa-solid fa-calendar"></i>
+          <p>Today</p>
         </div>
       </div>
-
-      <div class="content">
+      <div class="project-container">
+        <div class="addproj">
+          <h2>Add Project</h2>
+          <i class="fa-solid fa-plus"></i>
+        </div>
         
+        <div class="sidebar-items">
+
+        </div>
       </div>
+
     </div>
-  </div>
+
+    <div class="hiddenlinks" style="display: none;">
+      <a href="https://icons8.com/icon/67884/delete-button">Delete Button</a> icon by <a
+        href="https://icons8.com">Icons8</a>
+    </div>
+
+    <div class="content">
+
+    </div>
 
 </body>
 

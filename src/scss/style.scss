@@ -1,104 +1,321 @@
 // make a mixin for flex column
 @mixin flex-column($justify: center, $align: center) {
-    display: flex;
-    flex-direction: column;
-    justify-content: $justify;
-    align-items: $align;
+  display: flex;
+  flex-direction: column;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 // make a mixin for flex row
 @mixin flex-row($justify: center, $align: center) {
-    display: flex;
-    flex-direction: row;
-    justify-content: $justify;
-    align-items: $align;
+  display: flex;
+  flex-direction: row;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 // make a mixin for flex center
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@mixin  shadow {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+@mixin shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
-$primary-color: #EFBC9B;
-$hover-color: #364B71;
-$secondary-color: #FBF3D5;
-$tertiary-color: #D6DAC8;
-$dark-color: #9CAFAA;
+$primary-color: #efbc9b;
+$hover-color: #364b71;
+$secondary-color: #fbf3d5;
+$tertiary-color: #d6dac8;
+$dark-color: #9cafaa;
+$text-color: #0b0f18;
+$edit-color: #daad69;
+$delete-color: #db6969;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: $tertiary-color;
+  font-family: "Roboto", sans-serif;
+  background-color: $tertiary-color;
 }
 
+.navbar {
+  @include flex-row(space-between, center);
+  background-color: $primary-color;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 100;
+  position: fixed; /* Change position to fixed */
+  top: 0; /* Position at the top */
 
-.navbar{
-    @include flex-row( space-between, center);
-    background-color: $primary-color;
-    padding: .5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-     position: absolute;
-    width: 100%;
+  #addtask {
+    background-color: $dark-color;
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
-
-    .nav-item {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-right: 1rem;
-
-        i{
-            margin-right: 0.5rem;
-            &:hover{
-                color: $hover-color;               
-            }
-        }
-
-        h1{
-            font-size: 1.7rem;
-            font-weight: 700;
-        }   
+    &:hover {
+      background-color: $hover-color;
     }
-    z-index: 100;
+  }
+  .nav-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 1rem;
+    justify-content: center;
+
+    i {
+      margin-right: 0.5rem;
+      &:hover {
+        color: $hover-color;
+      }
+    }
+    #plus {
+      margin-right: 0rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+  }
+  z-index: 100;
 }
 
-.sidebar{
-    @include flex-column(space-between, space-between);
-    background-color: $secondary-color;
-    width: 15%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    z-index: 1;
+.belownav {
+  padding-top: 3rem;
+}
 
-    padding-top: 3rem;
 
-    //Shadow right
-    @include shadow;
-    
+.sidebar {
+  @include flex-column(space-between, space-between);
+  background-color: $secondary-color;
+  width: 16rem;
+  transition: transform 0.2s;
+  height: 100vh;
+  padding-top: 3rem;
+  @include shadow;
 
-    .sidebar-item{
-        @include flex-row( flex-start, center);
-        padding: 1rem;
+
+  /* Adjust positioning */
+  position: fixed; /* Change position to fixed */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  z-index: 99; /* Ensure sidebar is behind the navbar */
+
+  .sidebar-item,
+  .addproj {
+    @include flex-row(flex-start, center);
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid $dark-color;
+    &:hover {
+        background-color: $hover-color;
+    }
+    i {
+      margin-right: 0.5rem;
+    }
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+      margin-right: 0.5rem;
+
+      &:hover {
+        color: $delete-color;
+      }
+    }
+  }
+
+  #project{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .addproj {
+    background-color: $primary-color;
+    color: rgb(90, 23, 23);
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+}
+
+
+
+.content {
+  padding-left: 20rem;
+  padding-top: 70px;
+  width: 85%;
+  height: auto;
+  background-color: $tertiary-color;
+  z-index: 98;
+  position: relative;
+  transition: padding-left 0.2s;
+
+  .todo-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+
+    .todo-item {
+      @include flex-column(space-between, flex-start);
+      /* Increased padding for better spacing */
+      background-color: $secondary-color;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .text-container {
+        
+        padding: 1.5rem;
+        padding-bottom: 0%;
+      }
+
+      .todo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: $text-color;
+      }
+
+      .todo-description,
+      .todo-duedate,
+      .todo-priority,
+      .todo-project {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: $dark-color;
+      }
+
+      .button-container {
+        display: flex;
+        padding: 0%;
         width: 100%;
-        border-bottom: 1px solid $dark-color;
-        &:hover{
-            background-color: $hover-color;
+        justify-content: space-between; /* Align buttons with space between them */
+      }
+
+      .delete-button,
+      .edit-button {
+        background-color: $primary-color;
+        width : 50%;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+        .delete-button {
+            background-color: $delete-color;
+            border-radius: 0px 0px 0px 15px;
         }
-        i{
-            margin-right: 0.5rem;
+
+        .edit-button {
+            background-color: $edit-color;
+            border-radius: 0px 0px 15px 0px;
         }
+
+      .delete-button:hover,
+      .edit-button:hover {
+        background-color: darken(
+          $primary-color,
+          10%
+        ); /* Darken the button color on hover */
+      }
+    }
+  }
+
+  .form {
+    @include flex-column(flex-start, flex-start);
+    padding: 1rem;
+    background-color: $secondary-color;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 0 auto;
+
+    .form-label {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .input,
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid $dark-color;
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 0.5rem 1rem;
+      background-color: $dark-color;
+      color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+}
+
+// classname is "sidebar menu-closed"
+.menu-closed > .sidebar {
+    transform: translateX(-100%); /* Move sidebar off screen */
+}
+
+
+.menu-closed > .content {
+    padding-left: 4rem; /* Adjust padding to center content */
+}
+
+
+// make it responsive
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    padding-top: 3rem;
+  }
+
+    .content {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .menu-closed > .content {
+        padding-left: 0;
+    }
+
+    .menu-closed > .sidebar {
+        transform: translateY(-100%); /* Move sidebar off screen */
     }
 }

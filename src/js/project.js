@@ -21,6 +21,10 @@ export class Project {
         return this.id;
     }
 
+    getName() {
+        return this.name;
+    }
+    
     getTasks() {
         return this.tasks;
     }
