@@ -9,6 +9,7 @@ export class Todo {
  
 }
 
+
     updateTitle(title) {
         this.title = title;
     }

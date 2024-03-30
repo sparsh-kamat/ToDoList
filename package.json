@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx webpack build --mode production",
-    "watch": "npx webpack build --watch --mode production",
+    "watch": "npx webpack build --watch --mode development",
     "gh-pages-deploy": "npm run build && git add . && git commit -m 'Deploy to gh-pages' && git subtree push --prefix dist origin gh-pages"
   },
   "author": "Sparsh",

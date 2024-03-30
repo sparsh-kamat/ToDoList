@@ -20,4 +20,10 @@ function createElementWithClass(elementType, className) {
     return element;
 }
 
-export { setAttributes, createElementWithClass };
+function createElementWithText(elementType, className, text) {
+  var element = createElementWithClass(elementType, className);
+  element.textContent = text;
+  return element;
+}
+
+export { setAttributes, createElementWithClass, createElementWithText };
