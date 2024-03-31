@@ -1,29 +1,28 @@
-// set attributes for an element
-function setAttributes(element, attributes) {
-  for (var key in attributes) {
-    element.setAttribute(key, attributes[key]);
-  }
-}
-
-// create a element with classname
+//DOM Helper functions
 function createElementWithClass(elementType, className) {
   var element = document.createElement(elementType);
-  
-  if(Array.isArray(className)) {
-    className.forEach(function(name) {
-      element.classList.add(name);
-    });
+
+  if (Array.isArray(className)) {
+      className.forEach(function (name) {
+          element.classList.add(name);
+      });
   } else {
-    element.classList.add(className);
+      element.classList.add(className);
   }
 
-    return element;
+  return element;
 }
 
 function createElementWithText(elementType, className, text) {
   var element = createElementWithClass(elementType, className);
   element.textContent = text;
   return element;
+}
+
+function setAttributes(element, attributes) {
+  for (var key in attributes) {
+      element.setAttribute(key, attributes[key]);
+  }
 }
 
 export { setAttributes, createElementWithClass, createElementWithText };
