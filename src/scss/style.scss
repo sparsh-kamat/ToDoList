@@ -102,7 +102,6 @@ body {
   padding-top: 3rem;
 }
 
-
 .sidebar {
   @include flex-column(space-between, space-between);
   background-color: $secondary-color;
@@ -111,7 +110,6 @@ body {
   height: 100vh;
   padding-top: 3rem;
   @include shadow;
-
 
   /* Adjust positioning */
   position: fixed; /* Change position to fixed */
@@ -126,7 +124,7 @@ body {
     width: 100%;
     border-bottom: 1px solid $dark-color;
     &:hover {
-        background-color: $hover-color;
+      background-color: $hover-color;
     }
     i {
       margin-right: 0.5rem;
@@ -143,7 +141,7 @@ body {
     }
   }
 
-  #project{
+  #project {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -157,8 +155,6 @@ body {
     }
   }
 }
-
-
 
 .content {
   padding-left: 20rem;
@@ -189,7 +185,6 @@ body {
       }
 
       .text-container {
-        
         padding: 1.5rem;
         padding-bottom: 0%;
       }
@@ -220,7 +215,7 @@ body {
       .delete-button,
       .edit-button {
         background-color: $primary-color;
-        width : 50%;
+        width: 50%;
         color: white;
         padding: 0.5rem 1rem;
         border: none;
@@ -228,15 +223,15 @@ body {
         transition: background-color 0.3s ease;
       }
 
-        .delete-button {
-            background-color: $delete-color;
-            border-radius: 0px 0px 0px 15px;
-        }
+      .delete-button {
+        background-color: $delete-color;
+        border-radius: 0px 0px 0px 15px;
+      }
 
-        .edit-button {
-            background-color: $edit-color;
-            border-radius: 0px 0px 15px 0px;
-        }
+      .edit-button {
+        background-color: $edit-color;
+        border-radius: 0px 0px 15px 0px;
+      }
 
       .delete-button:hover,
       .edit-button:hover {
@@ -290,32 +285,39 @@ body {
 
 // classname is "sidebar menu-closed"
 .menu-closed > .sidebar {
-    transform: translateX(-100%); /* Move sidebar off screen */
+  transform: translateX(-100%); /* Move sidebar off screen */
 }
-
 
 .menu-closed > .content {
-    padding-left: 4rem; /* Adjust padding to center content */
+  padding-left: 4rem; /* Adjust padding to center content */
 }
-
 
 // make it responsive
 @media screen and (max-width: 768px) {
   .sidebar {
     width: 100%;
     padding-top: 3rem;
+    padding-bottom: 15rem;
   }
 
-    .content {
-        padding-left: 0;
-        width: 100%;
-    }
+  
+  .navbar {
+    padding: 0.5rem;
+  }
 
-    .menu-closed > .content {
-        padding-left: 0;
-    }
 
-    .menu-closed > .sidebar {
-        transform: translateY(-100%); /* Move sidebar off screen */
-    }
+
+  .menu-closed > .sidebar {
+    transform: translateY(-100%); /* Move sidebar off screen */
+  }
+
+  .menu-closed > .content {
+    width: 100%;
+    padding: 2rem; /* Adjust padding to center content */
+    padding-top: 4rem;
+  }
+
+  .form {
+    width: 100%;
+  }
 }

@@ -53,8 +53,11 @@ function renderTodos(todoarray, projarray) {
 
         var buttoncontainer = createElementWithClass('div', ['button-container']);
         var deleteButton = createElementWithText('button', ['delete-button'], 'Delete');
+        setAttributes(deleteButton, { 'todo-id': todo.getId() });
+        
         buttoncontainer.appendChild(deleteButton);
         var editButton = createElementWithText('button', ['edit-button'], 'Edit');
+        setAttributes(editButton, { 'todo-id': todo.getId() });
         buttoncontainer.appendChild(editButton);
         item.appendChild(buttoncontainer);
         todocontainer.appendChild(item);
